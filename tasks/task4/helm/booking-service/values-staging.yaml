@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   name: booking-service
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Never
 
 service:
   type: ClusterIP
@@ -12,15 +12,15 @@ service:
 
 env:
   - name: ENABLE_FEATURE_X
-    value: "false"
+    value: "true"
 
 resources:
   requests:
     cpu: 50m
     memory: 64Mi
   limits:
-    cpu: 200m
-    memory: 128Mi
+    cpu: 250m
+    memory: 160Mi
 
 livenessProbe:
   httpGet:

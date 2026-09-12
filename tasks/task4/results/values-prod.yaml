@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 3
 
 image:
   name: booking-service
@@ -16,22 +16,22 @@ env:
 
 resources:
   requests:
-    cpu: 50m
-    memory: 64Mi
-  limits:
-    cpu: 200m
+    cpu: 100m
     memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
 
 livenessProbe:
   httpGet:
     path: /ping
     port: 8080
-  initialDelaySeconds: 5
-  periodSeconds: 10
+  initialDelaySeconds: 10
+  periodSeconds: 20
 
 readinessProbe:
   httpGet:
     path: /ping
     port: 8080
-  initialDelaySeconds: 3
-  periodSeconds: 5
+  initialDelaySeconds: 5
+  periodSeconds: 10
